@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "incremental": true,
+    "sourceMap": true,
+    "stripInternal": true,
+    "strictBindCallApply": true,
+    "lib": ["ES6", "DOM"],
+  },
+  "include": ["src", "test"],
+}

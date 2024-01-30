@@ -1,0 +1,36 @@
+{
+  "name": "protobuf-zqm-ts-transport",
+  "version": "0.0.1",
+  "description": "A transport layer for to sit between protobuf and zmq",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "generate:proto": "pnpm protoc --ts_out ./test/generated/ --proto_path ./test/assets test_service.proto"
+  },
+  "dependencies": {
+    "@protobuf-ts/runtime-rpc": "^2.9.3",
+    "rxjs": "^8.0.0-alpha.14",
+    "zeromq": "^6.0.0-beta.19",
+    "deepmerge": "^4.3.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.1",
+    "@types/node": "16.11.7",
+    "typescript": "^5.3.3",
+    "prettier": "^3.2.4",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "@tsconfig/node16": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "@protobuf-ts/protoc": "^2.9.3",
+    "@protobuf-ts/plugin": "^2.9.3",
+    "@protobuf-ts/runtime": "^2.9.3",
+    "vitest": "^1.2.2",
+    "vite": "^5.0.12"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
