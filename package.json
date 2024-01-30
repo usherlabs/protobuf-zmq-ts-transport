@@ -2,10 +2,25 @@
   "name": "protobuf-zmq-ts-transport",
   "version": "0.0.1",
   "description": "A transport layer for to sit between protobuf and zmq",
-  "main": "index.js",
+  "main": "index.mjs",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "generate:proto": "pnpm protoc --ts_out ./test/generated/ --proto_path ./test/assets test_service.proto"
+    "generate:proto": "pnpm protoc --ts_out ./test/generated/ --proto_path ./test/assets test_service.proto",
+    "build:types": "tsc --emitDeclarationOnly -p tsconfig.release.json",
+    "build": "pnpm build:types && tsx build.ts",
+    "clean": "rimraf dist"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
   },
   "dependencies": {
     "@protobuf-ts/runtime-rpc": "^2.9.3",
@@ -14,6 +29,8 @@
     "deepmerge": "^4.3.1"
   },
   "devDependencies": {
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.0",
     "dotenv": "^16.4.1",
     "@types/node": "16.11.7",
     "typescript": "^5.3.3",
@@ -28,7 +45,8 @@
     "@protobuf-ts/plugin": "^2.9.3",
     "@protobuf-ts/runtime": "^2.9.3",
     "vitest": "^1.2.2",
-    "vite": "^5.0.12"
+    "vite": "^5.0.12",
+    "esbuild": "^0.20.0"
   },
   "keywords": [],
   "author": "",

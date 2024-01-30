@@ -1,7 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
+    "outDir": "dist",
     "target": "ESNext",
+    "noEmit": true,
     "module": "ESNext",
     "allowJs": true,
     "declaration": true,
@@ -10,10 +13,11 @@
     "resolveJsonModule": true,
     "strict": true,
     "incremental": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "stripInternal": true,
     "strictBindCallApply": true,
-    "lib": ["ES6", "DOM"],
+    "lib": ["dom"]
   },
-  "include": ["src", "test"],
+  "include": ["src", "test"]
 }
