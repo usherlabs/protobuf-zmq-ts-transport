@@ -1,7 +1,7 @@
 import { defer, firstValueFrom, from } from "rxjs";
 import * as zmq from "zeromq";
 import { Publisher, Subscriber } from "zeromq";
-import { ZQMClientTransport } from "../src/ZMQTransport";
+import { ZMQClientTransport } from "../src/ZMQTransport";
 import { describe, expect, test as rawTest } from "vitest";
 import { MyServerServiceClient } from "./generated/test_service.client";
 import {
@@ -19,7 +19,7 @@ const test = rawTest.extend<{
   pub: Publisher;
   sub: Subscriber;
   req: zmq.Dealer;
-  transport: ZQMClientTransport;
+  transport: ZMQClientTransport;
 }>({
   pub: async ({}, use) => {
     const pub = new zmq.Publisher();
@@ -40,9 +40,9 @@ const test = rawTest.extend<{
     req.disconnect(testRequestAddress);
   },
   transport: async ({ sub, req }, use) => {
-    const zqmClientTransport = new ZQMClientTransport(sub, req);
-    const subscription = zqmClientTransport.start();
-    await use(zqmClientTransport);
+    const zmqClientTransport = new ZMQClientTransport(sub, req);
+    const subscription = zmqClientTransport.start();
+    await use(zmqClientTransport);
     subscription.unsubscribe();
   },
 });
@@ -61,10 +61,10 @@ describe("transport", () => {
   });
 
   test("request client with active server", async ({ sub, req }) => {
-    const zqmClientTransport = new ZQMClientTransport(sub, req);
-    zqmClientTransport.start();
+    const zmqClientTransport = new ZMQClientTransport(sub, req);
+    zmqClientTransport.start();
 
-    const client = new MyServerServiceClient(zqmClientTransport);
+    const client = new MyServerServiceClient(zmqClientTransport);
     const item = MyRequestInput.create({
       timeToSleep: 1000,
     });

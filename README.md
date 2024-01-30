@@ -1,4 +1,4 @@
-# protobuf-zqm-ts-transport
+# protobuf-zmq-ts-transport
 
 This is a package that allows you to use the [`protobuf-ts`](https://github.com/timostamm/protobuf-ts) library and [ZeroMQ](https://zeromq.org/) messaging system together, aiding in efficient data transmission between processes via sockets. It supports both the pub-sub and request-reply patterns.
 
@@ -10,7 +10,7 @@ Follow these steps to make use of this library:
 
 1. Refer to the [protobuf-ts documentation](https://github.com/timostamm/protobuf-ts#quickstart) to generate a client file for your `.proto` services.
 2. Establish and connect a `SUB` and `DEALER` ZeroMQ socket.
-3. Construct a `ZQMClientTransport` object and pass it as an argument when creating a service client.
+3. Construct a `ZMQClientTransport` object and pass it as an argument when creating a service client.
 4. Make sure a service is operational and capable of either publishing data or responding to requests.
 5. Activate any method from the client to either subscribe to a certain topic or request data.
 
@@ -82,7 +82,7 @@ Note: Currently, we only support building Client implementations with this packa
 implementations.
 
 ## Resources
-- [protobuf-zqm-rust-generator](https://github.com/usherlabs/protobuf-zqm-rust-generator): The Rust implementation that permits us to communicate using this protocol
+- [protobuf-zmq-rust-generator](https://github.com/usherlabs/protobuf-zmq-rust-generator): The Rust implementation that permits us to communicate using this protocol
 - [ZeroMQ](https://zeromq.org/): The messaging library used to transmit data between processes
 - [protobuf-ts](https://github.com/timostamm/protobuf-ts): The protobuf library used to generate the client files
 

@@ -28,7 +28,7 @@ import {
 import zmq from "zeromq";
 import mergeObjects from "deepmerge";
 
-export class ZQMClientTransport implements RpcTransport {
+export class ZMQClientTransport implements RpcTransport {
   private subscriptionMessageSubject = new Subject<[string, Uint8Array]>();
   private replyMessageSubject = new Subject<[string, Uint8Array]>();
   public start: () => Subscription;

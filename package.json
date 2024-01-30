@@ -1,5 +1,5 @@
 {
-  "name": "protobuf-zqm-ts-transport",
+  "name": "protobuf-zmq-ts-transport",
   "version": "0.0.1",
   "description": "A transport layer for to sit between protobuf and zmq",
   "main": "index.js",
