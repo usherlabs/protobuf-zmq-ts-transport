@@ -8,7 +8,7 @@ Originally designed to facilitate communication between a NodeJS client and a Ru
 
 Follow these steps to make use of this library:
 
-1. Refer to the [protobuf-ts documentation](https://github.com/timostamm/protobuf-ts#quickstart) to create a client file for your `.proto` services.
+1. Refer to the [protobuf-ts documentation](https://github.com/timostamm/protobuf-ts#quickstart) to generate a client file for your `.proto` services.
 2. Establish and connect a `SUB` and `DEALER` ZeroMQ socket.
 3. Construct a `ZQMClientTransport` object and pass it as an argument when creating a service client.
 4. Make sure a service is operational and capable of either publishing data or responding to requests.
@@ -16,7 +16,10 @@ Follow these steps to make use of this library:
 
 For more comprehensive examples, refer to our test files.
 
-## Solution Goals
+## Implementation Details
+In this section, we will discuss the design decisions that went into this package. It's not necessary to understand every detail to use this package, but it may be helpful to understand its limitations.
+
+### Solution Goals
 
 - Facilitate inter-process communication while minimizing required modifications when extending the API.
 - Ensure type safety.
